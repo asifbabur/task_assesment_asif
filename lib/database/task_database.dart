@@ -12,11 +12,17 @@ class TaskDatabase {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('tasks.db');
+    _database = await initDB('tasks.db');
     return _database!;
   }
 
-  Future<Database> _initDB(String filePath) async {
+  Future<int> deleteAllTasks() async {
+    final db = await instance.database;
+
+    return await db.delete('tasks');
+  }
+
+  Future<Database> initDB(String filePath) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
