@@ -26,7 +26,7 @@ class _TaskListScreenState extends ConsumerState<TaskListScreen> {
       body: tasks.isEmpty
           ? const Center(child: Text('No tasks available'))
           : ListView.builder(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               itemCount: tasks.length,
               itemBuilder: (context, index) {
                 final task = tasks[index];
